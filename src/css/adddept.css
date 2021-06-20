@@ -1,0 +1,132 @@
+.adddept-container{
+    background: #161925;
+    width: 100%;
+    height: 91vh;
+    color: #037fff;
+    text-align: center;
+}
+
+.adddept-container .add-dept{
+    margin-bottom: 20px;
+    border-radius: 50px;
+}
+
+.add-dept .add-dept-btn{
+    background-color: #d8e5f1;
+    color: black;
+    padding: 8px 10px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    font-size: 18px;
+    border-radius: 10px;
+    outline: none;
+    transition: all 250ms ease-in-out;
+}
+
+.add-dept .add-dept-btn:hover{
+    background: #037fff;
+    color: #fff;
+}
+
+/* Popup Form Styling */
+#btncancel {
+cursor: pointer;
+align-self: left;
+background: black;
+color: white;
+padding: 5px;
+margin: 10px;
+margin-left: 98px;
+display: inline block;
+font: 'Bree Serif', Georgia, serif;
+}
+    
+.form {
+margin: auto;
+max-width: 300px;
+padding: 10px;
+background-color: #1a4570;
+text-align: center;
+border-radius: 10px;
+}
+
+.form .form-header{
+    font-size: 20px;
+    color: #fff;
+}
+
+.form input[type=text],
+.form input[type=password] {
+width: 100%;
+padding: 15px;
+margin: 5px 0 22px 0;
+border: none;
+background: #f1f1f1;
+}
+    
+.form input[type=text]:focus,
+.form input[type=password]:focus {
+background-color: #ddd;
+outline: none;
+}
+    
+.form .add-btn {
+background-color: #90bae4;
+color: white;
+padding: 8px 10px;
+border: none;
+cursor: pointer;
+width: 100%;
+margin-bottom: 10px;
+opacity: 0.8;
+font-size: 18px;
+border-radius: 10px;
+outline: none;
+transition: all 250ms ease-in-out;
+}
+.form .add-btn:hover{
+opacity: 1;
+}
+    
+/* Table Styling */
+.table{
+    width: 70%;
+    margin: auto;
+    background: #1a4570;
+}
+
+.table .table-header{
+    background: #06182b;
+    font-size: 20px;
+    width: 80%;
+}
+
+.table .table-header tr th{
+    padding: 10px 25px;
+}
+
+.table tbody{
+    background: #1a4570;
+}
+
+.table tbody tr{
+    padding-top: 10px;
+}
+
+.table tbody tr td button{
+    background: #90bae4;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 50%;
+    transition: all 250ms ease-in-out;
+    outline: none;
+}
+
+.table tbody tr td button:hover{
+    transform: scale(1.12);
+}

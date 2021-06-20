@@ -1,0 +1,79 @@
+.navbar{
+    height: 100vh;
+}
+
+.navbar .nav{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .nav .logo{
+    width: 100%;
+    text-align: center;
+    padding: 1.6rem 0;
+    font-size: 30px;
+    border-bottom: 1px solid #2e344e;
+}
+
+.navbar .nav .logo a{
+    text-decoration: none;
+    color: white;
+    background: #0381ff33;
+    padding: 1rem;
+    border-radius: 50%;
+}
+
+
+.navbar .nav .footer{
+    width: 100%;
+    border-top: 1px solid #2e344e;
+}
+
+.navbar .nav .footer p{
+    text-align: center;
+    padding: 1rem 0; 
+    color: white;
+}
+
+.navbar .nav .nav-items{
+    width: 100%;
+}
+
+.navbar .nav .nav-items .nav-item{
+    list-style: none;
+    text-align: center;
+}
+
+.navbar .nav .nav-items .nav-item a{
+    text-decoration: none;
+    font-size: inherit;
+    color: #fff;
+    display: block;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.navbar .nav .nav-items .nav-item a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.4rem;
+    height: 100%;
+    background: #0381ff33;
+    transform-origin: bottom;
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+
+.navbar .nav .nav-items .nav-item a:hover:before{
+    width: 100%;
+    transform: scale(1);
+}
+
+.active{
+    background-color: #037fff;
+}
