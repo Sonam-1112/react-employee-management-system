@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import Modal from 'react-modal'
+import {uniqueId} from '../../uniqueid'
 
 function AddDeptForm({handleAddNewDept}) {
     const [deptname, setDeptname] = useState("");
@@ -20,7 +21,7 @@ function AddDeptForm({handleAddNewDept}) {
     const AddDept = (e)=>{
         e.preventDefault();
         if(deptname.trim()!=='' && deptcode.trim()!==''){
-            const data =  { deptname:deptname,deptcode:deptcode};
+            const data =  { id:uniqueId(), deptname:deptname,deptcode:deptcode};
             setDeptname('');
             setDeptcode('');
             handleAddNewDept(data);

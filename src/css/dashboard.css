@@ -3,6 +3,7 @@
     background: #161925;
     margin: auto;
     color: #037fff;
+    box-shadow: 10px 10px 100px black;
 }
 
 .dashboard-container .row{
@@ -17,6 +18,7 @@
     border-radius: 20px;
     height: 10rem;
     text-align: center;
+    padding: 10px;
 }
 
 .dashboard-container .row .card .total-heading{

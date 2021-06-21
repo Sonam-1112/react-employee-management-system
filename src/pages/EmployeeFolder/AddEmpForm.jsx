@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import Modal from 'react-modal'
-import '../css/addemp.css'
-import {uniqueId} from '../uniqueid'
+import {uniqueId} from '../../uniqueid'
 
 function AddEmpForm({handleAddNewEmployee}) {
     const [name, setName] = useState("");
@@ -25,7 +24,7 @@ function AddEmpForm({handleAddNewEmployee}) {
     const AddEmployee = (e)=>{
         e.preventDefault();
         if(name.trim()!=='' && phone.trim()!=='' && email.trim()!=='' && desig.trim()!=='' && dept.trim()!==''){
-            const data =  { id:uniqueId(), name:name, phone:phone, email:email,desig:desig,dept:dept};
+            const data =  { id:uniqueId(), name, phone, email,desig,dept};
             setName('');
             setPhone('');
             setEmail('');

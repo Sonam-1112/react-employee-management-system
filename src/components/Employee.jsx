@@ -1,7 +1,8 @@
 import React from 'react'
 import '../css/addemp.css'
+import EditEmpForm from '../pages/EmployeeFolder/EditEmpForm'
 
-const Employee = ({employee,onDeleteEmployee}) => {
+const Employee = ({employee,onDeleteEmployee,handleEditEmployee}) => {
     const {id,name,phone,email,desig,dept} = employee
     
     return (
@@ -12,8 +13,8 @@ const Employee = ({employee,onDeleteEmployee}) => {
             <td>{desig}</td>
             <td>{dept}</td> 
             <td className="actions">
-                <button onClick={()=>{}}><span className="material-icons edit-icon">edit</span></button>
-                 <button onClick={()=>onDeleteEmployee(id)}><span className="material-icons delete-icon">remove_circle</span></button>
+                <EditEmpForm handleEditEmployee={handleEditEmployee} employee={employee}/>
+                <button onClick={()=>onDeleteEmployee(id)}><span className="material-icons delete-icon">remove_circle</span></button>
             </td>
         </tr>
     )

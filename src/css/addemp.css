@@ -2,8 +2,10 @@
     background: #161925;
     width: 100%;
     height: 91vh;
-    color: #037fff;
+    color: #fff;
     text-align: center;
+    box-shadow: 10px 10px 100px black;
+    padding: 10px;
 }
 
 .addemp-container .add-emp{
@@ -102,7 +104,7 @@ opacity: 1;
 .table .table-header{
     background: #06182b;
     font-size: 20px;
-    
+    color: #037fff;
 }
 
 .table .table-header tr th{

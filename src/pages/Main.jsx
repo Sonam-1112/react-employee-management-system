@@ -1,14 +1,13 @@
 import React from 'react'
 import Navbar from '../components/Navbar.jsx'
 import '../css/layout.css'
-import AddEmployee from './AddEmployee.jsx'
-import AddDepartment from './AddDepartment.jsx'
+import AddEmployee from './EmployeeFolder/AddEmployee'
+import AddDepartment from './DepartmentFolder/AddDepartment'
 import Dashboard from './Dashboard.jsx'
 import {Switch, Route } from 'react-router-dom'
 
 function Main() {
-    return (
-   
+    return ( 
         <div className="whole-container">
             <div className="sidebar">
                 <Navbar />
@@ -23,8 +22,6 @@ function Main() {
                 </div>
             </div>
         </div>
-     
     )
 }
-
 export default Main
