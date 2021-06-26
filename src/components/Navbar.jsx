@@ -1,8 +1,15 @@
 import React from 'react'
-import {NavLink,Link} from 'react-router-dom';
+import {NavLink,Link,useHistory} from 'react-router-dom';
 import '../css/navbar.css'
+import {useAuth} from '../contexts/AuthContext'
 
 function Navbar() {
+    const {logout} = useAuth();
+    const history = useHistory();
+    const handleLogout=()=>{
+        logout()
+        history.push('/')
+    }
     return (
         <div className="navbar">
             <nav className="nav">
@@ -20,7 +27,7 @@ function Navbar() {
                         <NavLink to="/dashboard/add-department" exact activeClassName="active">Add Departments</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/" exact activeClassName="active">Logout</NavLink>
+                        <button onClick={handleLogout} exact activeClassName="active">Logout</button>
                     </li>    
                 </ul>
                 <footer className="footer">

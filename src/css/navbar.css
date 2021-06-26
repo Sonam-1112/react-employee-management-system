@@ -26,7 +26,6 @@
     border-radius: 50%;
 }
 
-
 .navbar .nav .footer{
     width: 100%;
     border-top: 1px solid #2e344e;
@@ -54,6 +53,26 @@
     display: block;
     padding: 0.5rem 0;
     position: relative;
+}
+
+.navbar .nav .nav-items .nav-item button{
+    text-decoration: none;
+    width: 100%;
+    background: inherit;
+    border: none;
+    color: #fff;
+    font-size: inherit;
+    display: block;
+    padding: 0.5rem 0;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar .nav .nav-items .nav-item button:hover{
+    background: #0381ff33;
+    transform: scale(1);
 }
 
 .navbar .nav .nav-items .nav-item a::before{

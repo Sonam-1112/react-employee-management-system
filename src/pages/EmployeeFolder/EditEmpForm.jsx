@@ -1,13 +1,29 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Modal from 'react-modal'
-import {uniqueId} from '../../uniqueid'
 
-function EditEmpForm({handleEditEmployee,employee}) {
-    const [name, setName] = useState(employee.name);
-    const [phone, setPhone] = useState(employee.phone);
-    const [email, setEmail] = useState(employee.email);
-    const [desig, setDesig] = useState(employee.desig); 
-    const [dept, setDept] = useState(employee.dept);
+function EditEmpForm({handleEditEmployee,currentId,empObjects}) {
+    // const initialValues={
+    //     name:"",
+    //     phone:"",
+    //     email:"",
+    //     desig:"",
+    //     dept:""
+    // }
+    const [name, setName] = useState(empObjects[currentId].name);
+    const [phone, setPhone] = useState(empObjects[currentId].phone);
+    const [email, setEmail] = useState(empObjects[currentId].email);
+    const [desig, setDesig] = useState(empObjects[currentId].desig); 
+    const [dept, setDept] = useState(empObjects[currentId].dept);
+    // const [values,setValues] = useState(initialValues);
+
+    useEffect(() => {
+        if(currentId==''){
+            console.log("Empty")
+        }
+        else{
+            console.log("Not Empty")
+        }
+    }, [currentId,empObjects])
 
     const [modalIsOpen, setIsOpen] = useState(false);
     function openModal() {
@@ -24,13 +40,9 @@ function EditEmpForm({handleEditEmployee,employee}) {
     const EditEmployee = (e)=>{
         e.preventDefault();
         if(name.trim()!=='' && phone.trim()!=='' && email.trim()!=='' && desig.trim()!=='' && dept.trim()!==''){
-            const data =  { id:employee.id, name:name, phone:phone, email:email,desig:desig,dept:dept};
-            // setName('');
-            // setPhone('');
-            // setEmail('');
-            // setDesig('');
-            // setDept('');
-            handleEditEmployee(data);
+            // const data =  { empObjects[currentId].id, empObjects[currentId].name, phone:empObjects[currentId].phone, email:empObjects[currentId].email,desig:empObjects[currentId].desig,dept:empObjects[currentId].dept};
+            const values = {name,phone,email,desig,dept} 
+            handleEditEmployee(values,currentId);
             closeModal();
             }
             else{

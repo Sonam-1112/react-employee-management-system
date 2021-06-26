@@ -36,7 +36,7 @@ function AddDeptForm({handleAddNewDept}) {
         <div>
             <div className="add-dept">
                 <button className="add-dept-btn" onClick={openModal}>Add Department</button>
-            </div>
+            </div> 
             <Modal 
                 isOpen={modalIsOpen}
                 onAfterOpen={afterOpenModal}

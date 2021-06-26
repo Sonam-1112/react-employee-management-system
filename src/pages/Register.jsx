@@ -1,39 +1,52 @@
-import React,{useState} from 'react'
+import React,{useState,useRef} from 'react'
 import {login_img} from '../images/index'
 import '../css/login_reg.css'
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
+import {useAuth} from '../contexts/AuthContext'
 
 function Register() {
-    const [username,setUsername] = useState('');
-    const [email,setEmail] = useState('');
-    const [password,setPassword] = useState('');
-    const [conpassword,setConpassword] = useState('');
+    const emailRef = useRef();
+    const passwordRef = useRef();
+    const conpasswordRef = useRef();
+    const [error,setError] = useState('');
+    const history = useHistory();
+    const {signup} = useAuth();
+    function handleSubmit(e){
+        e.preventDefault();
+        if(passwordRef.current.value!==conpasswordRef.current.value){
+            return setError("Passwords do not match...")
+        }   
+        setError('')
+        signup(emailRef.current.value,passwordRef.current.value).then(res => {
+            console.log('then')
+            history.push('/dashboard')
+        }).catch((err) => {setError("Failed to create an account");
+        console.log(err,'err')
+        })
+    }
     return (
         <div className="base-container">
             <div className="header">Register</div>
+            {error}
             <div className="content">
                 <div className="image">
                     <img src={login_img} alt="" />
                 </div>
-                <div className="entry-form">
+                <form className="entry-form" onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label htmlFor="username">Username</label>
-                        <input type="text" name="username" placeholder="username" value={username} onChange={e=>setUsername(e.target.value)}/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" name="email" placeholder="email" value={email} onChange={e=>setEmail(e.target.value)} />
+                        <label htmlFor="username">Email</label>
+                        <input type="email" name="email" placeholder="email" ref={emailRef}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">Password</label>
-                        <input type="password" name="password" placeholder="password" value={password} onChange={e=>setPassword(e.target.value)}/>
+                        <input type="password" name="password" placeholder="password" ref={passwordRef}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="conpassword">Confirm Password</label>
-                        <input type="password" name="conpassword" placeholder="Confirm Password" value={conpassword} onChange={e=>setConpassword(e.target.value)}/>
+                        <input type="password" name="conpassword" placeholder="Confirm Password" ref={conpasswordRef}/>
                     </div>
-                    <Link to="/dashboard" type="button" className="btn">Register</Link>
-                </div>
+                    <button type="submit" className="btn">Register</button>
+                </form>
                 <div className="switch-link">Already have an account ?<Link to="/"> Sign in</Link></div>
             </div>
         </div>

@@ -1,10 +1,10 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Modal from 'react-modal'
 import { uniqueId } from '../../uniqueid';
 
-function EditDeptForm({handleEditDept,dept}) {
-    const [deptname, setDeptname] = useState(dept.deptname);
-    const [deptcode, setDeptcode] = useState(dept.deptcode);
+function EditDeptForm({handleEditDept,currentId,deptObjects}) {
+    const [deptname, setDeptname] = useState(deptObjects[currentId].deptname);
+    const [deptcode, setDeptcode] = useState(deptObjects[currentId].deptcode);
 
     const [modalIsOpen, setIsOpen] = useState(false);
     function openModal() {
@@ -18,13 +18,23 @@ function EditDeptForm({handleEditDept,dept}) {
         setIsOpen(false);
     }
 
+    useEffect(() => {
+        if(currentId==''){
+            console.log("Empty")
+        }
+        else{
+            console.log("Not Empty")
+        }
+    }, [currentId,deptObjects])
+
+
     const EditDept = (e)=>{
         e.preventDefault();
         if(deptname.trim()!=='' && deptcode.trim()!==''){
-            const data =  { id:dept.id,deptname:deptname,deptcode:deptcode};
+            const data =  {deptname,deptcode};
             // setDeptname('');
             // setDeptcode('');
-            handleEditDept(data);
+            handleEditDept(data,currentId);
             closeModal();
             }
             else{
