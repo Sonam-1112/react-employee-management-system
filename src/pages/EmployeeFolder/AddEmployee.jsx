@@ -82,9 +82,9 @@ function AddEmployee() {
         })
     }, [])
 
-    useEffect(() => {
-        saveState()
-    }, [employees])
+    // useEffect(() => {
+    //     saveState()
+    // }, [employees])
 
     return (
         <div className="addemp-container">

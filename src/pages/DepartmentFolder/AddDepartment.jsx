@@ -49,7 +49,7 @@ function AddDepartment() {
 
     const onDeleteDept = (id) => {
         // setDepts(depts.filter((data) => data.id !== id));
-        if(window.confirm("Are you sure to delete this employee?")){
+        if(window.confirm("Are you sure to delete this department?")){
             console.log(id)
             db.child(`depts/${id}`).remove(
                 err=>{
